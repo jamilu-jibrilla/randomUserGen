@@ -9,7 +9,7 @@ class ErrorBoundry extends Component {
         }
     }
 
-    componentDidCatch() {
+    componentDidCatch(err) {
         this.setState({
             hasError: true
         })
@@ -23,7 +23,7 @@ class ErrorBoundry extends Component {
                         <h1 style={{ margin: '0px', fontSize: '2.8rem' }}>Oops!</h1>
                         <p style={{ margin: '10px 0px', fontSize: '1.8rem' }}>An error has occured</p>
                         <p style={{ fontSize: '1.3srem' }}>App crashed</p>
-                        {/* <button style={{ cursor: 'pointer', color: 'white', borderRadius: '10px', padding: '7px 20px', fontSize: '13px', background: 'inherit', border: '1px solid gray' }}> <Link to={'/'}>GO HOME</Link></button> */}
+                        <button onClick={()=> location.reload()} style={{ cursor: 'pointer', color: 'white', borderRadius: '10px', padding: '7px 20px', fontSize: '13px', background: 'inherit', border: '1px solid gray' }}> Restart App</button>
                     </div>
                 </div>
             )

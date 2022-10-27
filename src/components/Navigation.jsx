@@ -1,10 +1,15 @@
+import { useEffect } from "react"
+import { useState } from "react"
 import { Link } from "react-router-dom"
 
 const Navigation = () => {
+    const [count, setCount] = useState(0)
 
-    const throwError = () => {
-        throw new Error('An error occured')
-    }
+    useEffect(()=> {
+        if(count > 0) {
+            throw new Error('App crashed')
+        }
+    }, [count])
 
     return (
         <div class="header">
@@ -13,7 +18,7 @@ const Navigation = () => {
                     <Link to={'/'} > <li> Home </li></Link>
                     <Link to={'users'}> <li> Users </li></Link>
                     <Link to={'sadalkjklm'}> <li>404</li></Link>
-                    <li onClick={throwError}>Error boundary</li>
+                    <li onClick={()=> setCount(1)}>Error boundary</li>
                 </ul>
             </div>
         </div>
